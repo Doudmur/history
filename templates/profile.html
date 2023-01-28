@@ -33,7 +33,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'profile' %}">Профиль</a></li>
-                        <li><a class="dropdown-item" href="{% url 'tasks' %}">Задания</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tasks_page' %}">Задания</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -51,6 +51,7 @@
                 <div class="row">
                     <div class="col"><h1><b>{{ user.last_name }} {{ user.first_name }}</b> {{ user.grade }} {{ user.grade_letter }}</h1></div>
                     <img src="{% static 'images/person.svg' %}" alt="..." class="img-thumbnail">
+                    <a href="{{ MEDIA_URL }}untitled.pdf" download="{{ MEDIA_URL }}untitled.pdf">Download</a>
                 </div>
             </div>
         </div>

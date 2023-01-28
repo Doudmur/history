@@ -33,7 +33,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'profile' %}">Профиль</a></li>
-                    <li><a class="dropdown-item" href="{% url 'tasks' %}">Задания</a></li>
+                    <li><a class="dropdown-item" href="{% url 'tasks_page' %}">Задания</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -63,26 +63,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a href="task_detail.html">Mark</a></td>
-                        <td>25.01.2023</td>
-                        <td>30.01.2023</td>
-                    </tr>
-                    <tr>
-                        <td><a href="task_detail.html">Jacob</a></td>
-                        <td>25.01.2023</td>
-                        <td>30.01.2023</td>
-                    </tr>
-                    <tr>
-                        <td><a href="task_detail.html">Larry The Bird</a></td>
-                        <td>25.01.2023</td>
-                        <td>30.01.2023</td>
-                    </tr>
-                    <tr>
-                        <td><a href="task_detail.html">Larry The Bird</a></td>
-                        <td>25.01.2023</td>
-                        <td>30.01.2023</td>
-                    </tr>
+                    {% for task in tasks %}
+                        <tr>
+                            <td><a href="{% url 'tasks_detail' task.id %}">{{ task.title }}</a></td>
+                            <td>{{ task.upload_date }}</td>
+                            <td>{{ task.deadline }}</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
 
                 </table>
